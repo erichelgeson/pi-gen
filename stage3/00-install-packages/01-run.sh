@@ -1,8 +1,10 @@
 #!/bin/bash -e
 
 on_chroot << EOF
-update-alternatives --install /usr/bin/x-www-browser \
-  x-www-browser /usr/bin/chromium-browser 86
-update-alternatives --install /usr/bin/gnome-www-browser \
-  gnome-www-browser /usr/bin/chromium-browser 86
+su pi
+cd /home/pi/
+git clone https://github.com/akuker/RASCSI.git
+cd RASCSI
+git checkout develop
+./easyinstall.sh -r=1
 EOF
